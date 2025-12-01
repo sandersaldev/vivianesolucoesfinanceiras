@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Brand palette mapped from HEX -> HSL (see design spec)
+       Petroleum (institutional): #0C2233  -> hsl(206 62% 12%)
+       Orange (CTA):                #e77603  -> hsl(34 97% 46%)
+       Brown (support):             #633700  -> hsl(33 100% 19%)
+       Neutral warm (background):   #F4E7D8 -> hsl(32 56% 90%)
+       Slate-text (typography):     #27313A -> hsl(208 20% 19%)
+    */
+
+  /* Site background should be dark petroleum (#0C2233) per request */
+  --background: 206 62% 12%;         /* petroleum dark (#0C2233) */
+  --foreground: 0 0% 100%;           /* text on dark background -> white */
+
+  --card: 206 62% 14%;              /* card slightly lighter than bg */
+  --card-foreground: 0 0% 100%;
+
+  --popover: 206 62% 14%;
+  --popover-foreground: 0 0% 100%;
+
+    --primary: 206 62% 12%;           /* azul-petroleo (institucional) */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 206 62% 20%;
+
+    --secondary: 33 100% 19%;         /* marrom (suporte) */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 208 12% 48%;
+    --muted-foreground: 208 16% 85%;
+
+    --accent: 34 97% 46%;             /* laranja CTA */
+    --accent-foreground: 0 0% 100%;
+
+  --gold: 39 90% 55%;
+  --gold-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 208 20% 14%;
+  --input: 206 62% 14%;
+    --ring: 206 62% 12%;
+
+    --radius: 0.75rem;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(206 62% 12%), hsl(34 97% 46%));
+    --gradient-accent: linear-gradient(135deg, hsl(34 97% 46%), hsl(39 90% 55%));
+  /* Background gradient: from brand petroleum (#0C2233) to a slightly lighter tint */
+  --gradient-bg: linear-gradient(180deg, hsl(206 62% 12%), hsl(206 62% 18%));
+    
+    --shadow-glow: 0 0 40px hsl(34 97% 46% / 0.18);
+    --shadow-card: 0 10px 40px hsl(206 62% 12% / 0.12);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-bg);
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+/* font import moved to top of file to satisfy CSS ordering rules */
